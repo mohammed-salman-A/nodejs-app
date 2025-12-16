@@ -25,11 +25,11 @@ jobs:
       - name: "building nodejs app"
         run: npm run build    
   
-  build:
+  test-integration:
     runs-on: ubuntu-latest
     strategy:
       matrix: 
-      node-version: [18.x,19.x,20.x]
+      node-version: [18.x,19.x,20.x] 
 
     
     steps:
