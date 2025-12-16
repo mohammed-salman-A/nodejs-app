@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-    matrix: 
-      node-version: [18.x,19.x,20.x]
+      matrix: 
+        node-version: [18.x, 19.x, 20.x]
 
     
     steps:
@@ -20,15 +20,15 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
           cache: 'npm'
-      - name: installing dependencies
+      - name: "installing dependencies"
       - run: npm i
-      - name: building nodejs app
+      - name: "building nodejs app"
       - run: npm run build    
   
   build:
     runs-on: ubuntu-latest
     strategy:
-    matrix: 
+      matrix: 
       node-version: [18.x,19.x,20.x]
 
     
@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
           cache: 'npm'
-      - name: installing dependencies 
+      - name: "installing dependencies" 
         run: npm i
-      - name: runnign test cases
+      - name: "runnign test cases"
         run: npm run test
