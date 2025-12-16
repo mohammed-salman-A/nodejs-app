@@ -2,8 +2,9 @@ name: integration
 
 on:
   push:
-    brandches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -25,7 +26,7 @@ jobs:
       - name: "building nodejs app"
         run: npm run build    
   
-  test-integration:
+  unit-test:
     runs-on: ubuntu-latest
     strategy:
       matrix: 
