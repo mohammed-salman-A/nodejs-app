@@ -21,9 +21,9 @@ jobs:
           node-version: ${{matrix.node-version}}
           cache: 'npm'
       - name: "installing dependencies"
-      - run: npm i
+        run: npm i
       - name: "building nodejs app"
-      - run: npm run build    
+        run: npm run build    
   
   build:
     runs-on: ubuntu-latest
