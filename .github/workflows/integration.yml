@@ -1,0 +1,45 @@
+name: integration
+
+on:
+  push:
+    brandches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        node-version: [18.x, 19.x, 20.x]
+
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: use node.js ${{matrix.node-version}}
+        uses: actions/node-setup@v3
+        with:
+          node-version: ${{matrix.node-version}}
+          cache: 'npm'
+      - name: "installing dependencies"
+        run: npm i
+      - name: "building nodejs app"
+        run: npm run build    
+  
+  test-integration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        node-version: [18.x,19.x,20.x] 
+
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: use node.js ${{matrix.node-version}}
+        uses: actions/node-setup@v3
+        with:
+          node-version: ${{matrix.node-version}}
+          cache: 'npm'
+      - name: "installing dependencies" 
+        run: npm i
+      - name: "runnign test cases"
+        run: npm run test
