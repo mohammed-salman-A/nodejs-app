@@ -23,7 +23,7 @@ jobs:
       - name: install dependencies
         run: npm install
       - name: build
-        run: npm run build
+        run: npm run start
 
   unit-test:
     runs-on: ubuntu-latest
