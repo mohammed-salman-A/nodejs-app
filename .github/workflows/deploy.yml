@@ -9,4 +9,4 @@ jobs:
     - uses: actions/checkout@v4
     - run: docker build . -t salman0alji/nodejs-app
     - run: echo "${{secrets.DOCKERHUB_TOKEN}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
-    - run: docker push salman0alji/nodejs-app:0.01
+    - run: docker push salman0alji/nodejs-app:latest
