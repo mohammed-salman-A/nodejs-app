@@ -10,3 +10,5 @@ jobs:
     - run: docker build . -t salman0alji/nodejs-app
     - run: echo "${{secrets.DOCKERHUB_TOKEN}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
     - run: docker push salman0alji/nodejs-app:latest
+
+    
