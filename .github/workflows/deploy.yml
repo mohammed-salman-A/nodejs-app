@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - run: docker build . -t salman0alji/nodejs-app
+    - run: docker build . -t salman0alji/nodejs-app:v1
     - run: echo "${{secrets.DOCKERHUB_TOKEN}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
     - run: docker push salman0alji/nodejs-app:v1
 
